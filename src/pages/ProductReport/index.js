@@ -3,6 +3,8 @@ import { Image, Text, View } from 'react-native';
 
 import { RectButton } from 'react-native-gesture-handler';
 
+import { AntDesign } from '@expo/vector-icons';
+
 import styles from './styles';
 
 import featuredImage from '../../assets/images/bike.jpg';
@@ -19,7 +21,10 @@ function ProductReport() {
         <View style={styles.featuredProductContainer}>
           <Text style={styles.featuredProductName}>Tigaroda oye bike</Text>
           <View style={styles.featuredProductPublishContainer}>
-            <Text style={styles.featuredProductPublishIcon}>O</Text>
+            <AntDesign
+              name="clockcircleo"
+              style={styles.featuredProductPublishIcon}
+            />
             <Text style={styles.featuredProductPublishText}>Publicado</Text>
             <Text style={styles.featuredProductPublishDate}>15 Nov 2020</Text>
           </View>

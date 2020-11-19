@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
   },
   featuredProductPublishIcon: {
     marginRight: 4,
+    color: '#2B2B73',
+    fontSize: 14,
   },
   featuredProductPublishText: {
     fontSize: 12,

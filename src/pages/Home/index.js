@@ -4,6 +4,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
+import { AntDesign } from '@expo/vector-icons';
+
 import styles from './styles';
 
 function Home() {
@@ -22,7 +24,7 @@ function Home() {
       <View style={styles.comparisonContainer}>
         <View style={styles.comparisonTitleContainer}>
           <Text style={styles.comparisonTitle}>Comparação</Text>
-          <Text style={styles.comparisonIcon}>{`<->`}</Text>
+          <AntDesign name="swap" style={styles.comparisonIcon} />
         </View>
         <View style={styles.businessAnalyticsContainer}>
           <View style={styles.businessAnalyticsData}>

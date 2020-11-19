@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  comparisonIcon: {
+    fontSize: 20,
+    color: '#2B2B73',
+  },
   businessAnalyticsContainer: {
     flex: 1,
     flexDirection: 'row',
