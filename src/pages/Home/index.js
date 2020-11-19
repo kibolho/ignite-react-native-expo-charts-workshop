@@ -13,6 +13,10 @@ function Home() {
     navigation.navigate('goals-performance');
   }
 
+  function handleProductReportPress() {
+    navigation.navigate('product-report');
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.comparisonContainer}>
@@ -55,6 +59,7 @@ function Home() {
           <View style={styles.businessAnalyticsChart} />
         </View>
         <TouchableOpacity
+          onPress={handleProductReportPress}
           style={styles.comparisonButtonContainer}
           activeOpacity={0.75}
         >
