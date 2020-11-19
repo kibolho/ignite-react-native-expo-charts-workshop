@@ -1,11 +1,18 @@
 import React from 'react';
 
 import { View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
 import styles from './styles';
 
 function Home() {
+  const navigation = useNavigation();
+
+  function handleGoalsPerformancePress() {
+    navigation.navigate('goals-performance');
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.comparisonContainer}>
@@ -56,7 +63,10 @@ function Home() {
       </View>
       <View style={styles.goalsContainer}>
         <Text style={styles.goalsTitle}>Desepenho de Metas</Text>
-        <BorderlessButton style={styles.goalsAnalyticsContainer}>
+        <BorderlessButton
+          onPress={handleGoalsPerformancePress}
+          style={styles.goalsAnalyticsContainer}
+        >
           <View style={styles.weekBalance}>
             <View style={styles.weekBalanceChart} />
             <View style={styles.weekBalanceData}>
