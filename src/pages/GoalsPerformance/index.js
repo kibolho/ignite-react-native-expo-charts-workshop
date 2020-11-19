@@ -8,7 +8,7 @@ function GoalsPerformance() {
   return (
     <View style={styles.container}>
       <View style={styles.goalsContainer}>
-        <Text style={styles.goalsTitle}>Desepenho de Metas</Text>
+        <Text style={styles.goalsTitle}>Desepenho das Metas</Text>
         <View style={styles.goalsChart} />
         <View style={styles.goalsDetailsContainer}>
           <View style={styles.thisMonthGoalsContainer}>

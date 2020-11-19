@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,13 +13,55 @@ const { Navigator, Screen } = createStackNavigator();
 
 function Entry() {
   return (
-    <NavigationContainer>
-      <Navigator>
-        <Screen name="home" component={Home} />
-        <Screen name="goals-performance" component={GoalsPerformance} />
-        <Screen name="product-report" component={ProductReport} />
-      </Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar hidden />
+      <NavigationContainer>
+        <Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#FBFBFB',
+              borderBottomWidth: 0,
+              elevation: 0,
+              shadowOpacity: 0,
+            },
+            headerTitleStyle: {
+              fontWeight: '500',
+            },
+            headerLeftContainerStyle: {
+              paddingHorizontal: 8,
+            },
+            headerTintColor: '#2B2B73',
+            headerBackTitleVisible: false,
+          }}
+        >
+          <Screen
+            name="home"
+            component={Home}
+            options={{ title: 'Estatísticas do Negócio' }}
+          />
+          <Screen
+            name="goals-performance"
+            component={GoalsPerformance}
+            options={{
+              title: 'Estatísticas do Negócio',
+              headerStyle: {
+                backgroundColor: '#C3E5FC',
+                borderBottomWidth: 0,
+                elevation: 0,
+                shadowOpacity: 0,
+              },
+            }}
+          />
+          <Screen
+            name="product-report"
+            component={ProductReport}
+            options={{
+              title: 'Relatório do Produto',
+            }}
+          />
+        </Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
