@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import GoalsPerformance from './pages/GoalsPerformance';
 import ProductReport from './pages/ProductReport';
 
+import HeaderRight from './components/HeaderRight';
+
 const { Navigator, Screen } = createStackNavigator();
 
 function Entry() {
@@ -37,7 +39,13 @@ function Entry() {
           <Screen
             name="home"
             component={Home}
-            options={{ title: 'Estatísticas do Negócio' }}
+            options={{
+              title: 'Estatísticas do Negócio',
+              headerRight: HeaderRight,
+              headerRightContainerStyle: {
+                paddingRight: 16,
+              },
+            }}
           />
           <Screen
             name="goals-performance"
@@ -49,6 +57,10 @@ function Entry() {
                 borderBottomWidth: 0,
                 elevation: 0,
                 shadowOpacity: 0,
+              },
+              headerRight: HeaderRight,
+              headerRightContainerStyle: {
+                paddingRight: 16,
               },
             }}
           />
