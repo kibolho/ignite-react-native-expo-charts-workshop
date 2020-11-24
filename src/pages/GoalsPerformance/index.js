@@ -1,15 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { View, Text } from 'react-native';
+
+import GoalsPerformanceProgressChart from '../../components/GoalsPerformanceProgressChart';
 
 import styles from './styles';
 
 function GoalsPerformance() {
+  const [
+    goalsPerformanceChartDimension,
+    setGoalsPerformanceChartDimensions,
+  ] = useState(null);
   return (
     <View style={styles.container}>
       <View style={styles.goalsContainer}>
-        <Text style={styles.goalsTitle}>Desepenho das Metas</Text>
-        <View style={styles.goalsChart} />
+        <Text style={styles.goalsTitle}>Desempenho das Metas</Text>
+        <View
+          style={[
+            styles.goalsChart,
+            goalsPerformanceChartDimension
+              ? styles.goalsChartWithData
+              : styles.goalsChartWithoutData,
+          ]}
+          onLayout={event => {
+            const { width, height } = event.nativeEvent.layout;
+            setGoalsPerformanceChartDimensions({ width, height });
+          }}
+        >
+          <GoalsPerformanceProgressChart
+            chartDimensions={goalsPerformanceChartDimension}
+          />
+          {goalsPerformanceChartDimension && (
+            <View style={styles.goalsPerformanceContainer}>
+              <Text style={styles.goalsPerformanceTitle}>75%</Text>
+              <Text style={styles.goalsPerformanceSubtitle}>
+                R$ 1050 / semana
+              </Text>
+            </View>
+          )}
+        </View>
         <View style={styles.goalsDetailsContainer}>
           <View style={styles.thisMonthGoalsContainer}>
             <Text style={styles.thisMonthGoalsTitle}>Esse mês</Text>

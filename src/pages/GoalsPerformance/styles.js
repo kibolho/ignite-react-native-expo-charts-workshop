@@ -22,9 +22,29 @@ const styles = StyleSheet.create({
   goalsChart: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#ddd',
-    alignSelf: 'center',
     marginVertical: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  goalsChartWithData: {
+    backgroundColor: 'transparent',
+  },
+  goalsChartWhitoutData: {
+    borderRadius: 8,
+    backgroundColor: '#f0f0f0',
+  },
+  goalsPerformanceContainer: {
+    position: 'absolute',
+    alignItems: 'center',
+  },
+  goalsPerformanceTitle: {
+    color: '#2B2B73',
+    fontWeight: 'bold',
+    fontSize: 72,
+  },
+  goalsPerformanceSubtitle: {
+    color: '#2B2B73',
+    fontSize: 18,
   },
   goalsDetailsContainer: {
     backgroundColor: '#F5F6FB',
@@ -84,7 +104,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   lastMonthGoalsValue: {
-    color: '#F6B550',
+    color: '#2B2B73',
     fontSize: 18,
     fontWeight: '600',
   },

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -6,9 +6,30 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 
 import { AntDesign } from '@expo/vector-icons';
 
+import HomeBarChart from '../../components/HomeBarChart';
+import {
+  yourBusinessChartData,
+  yourCompetitorChartData,
+} from '../../helpers/BarChartConfig';
+
+import GoalsPerformanceProgressChart from '../../components/GoalsPerformanceProgressChart';
+
 import styles from './styles';
 
 function Home() {
+  const [
+    yourBusinessChartDimensions,
+    setYourBusinessChartDimensions,
+  ] = useState(null);
+  const [
+    yourCompetitorChartDimensions,
+    setYourCompetitorChartDimensions,
+  ] = useState(null);
+  const [
+    yourWeekBalanceChartDimensions,
+    setYourWeekBalanceChartDimensions,
+  ] = useState(null);
+
   const navigation = useNavigation();
 
   function handleGoalsPerformancePress() {
@@ -41,11 +62,27 @@ function Home() {
               </Text>
             </View>
           </View>
-          <View style={styles.businessAnalyticsChart} />
+          <View
+            style={[
+              styles.businessAnalyticsChart,
+              yourBusinessChartDimensions
+                ? styles.businessAnalyticsChartWithData
+                : styles.businessAnalyticsChartWithoutData,
+            ]}
+            onLayout={event => {
+              const { width, height } = event.nativeEvent.layout;
+              setYourBusinessChartDimensions({ width, height });
+            }}
+          >
+            <HomeBarChart
+              chartDimensions={yourBusinessChartDimensions}
+              chartData={yourBusinessChartData}
+            />
+          </View>
         </View>
         <View style={styles.businessAnalyticsContainer}>
           <View style={styles.businessAnalyticsData}>
-            <Text style={styles.businessAnalyticsTitle}>Seu Negócio</Text>
+            <Text style={styles.businessAnalyticsTitle}>Seu Concorrente</Text>
             <View style={styles.businessAnalyticsValueContainer}>
               <Text style={styles.businessAnalyticsValue}>R$ 7.600,00</Text>
               <Text
@@ -58,7 +95,23 @@ function Home() {
               </Text>
             </View>
           </View>
-          <View style={styles.businessAnalyticsChart} />
+          <View
+            style={[
+              styles.businessAnalyticsChart,
+              yourCompetitorChartDimensions
+                ? styles.businessAnalyticsChartWithData
+                : styles.businessAnalyticsChartWithoutData,
+            ]}
+            onLayout={event => {
+              const { width, height } = event.nativeEvent.layout;
+              setYourCompetitorChartDimensions({ width, height });
+            }}
+          >
+            <HomeBarChart
+              chartDimensions={yourCompetitorChartDimensions}
+              chartData={yourCompetitorChartData}
+            />
+          </View>
         </View>
         <TouchableOpacity
           onPress={handleProductReportPress}
@@ -75,7 +128,28 @@ function Home() {
           style={styles.goalsAnalyticsContainer}
         >
           <View style={styles.weekBalance}>
-            <View style={styles.weekBalanceChart} />
+            <View
+              style={[
+                styles.weekBalanceChart,
+                yourWeekBalanceChartDimensions
+                  ? styles.weekBalanceChartWithData
+                  : styles.weekBalanceChartWithoutData,
+              ]}
+              onLayout={event => {
+                const { width, height } = event.nativeEvent.layout;
+                setYourWeekBalanceChartDimensions({ width, height });
+              }}
+            >
+              <GoalsPerformanceProgressChart
+                chartDimensions={yourWeekBalanceChartDimensions}
+                smallStroke
+              />
+              {yourWeekBalanceChartDimensions && (
+                <View style={styles.weekBalanceChartContainer}>
+                  <Text style={styles.weekBalanceChartTitle}>75%</Text>
+                </View>
+              )}
+            </View>
             <View style={styles.weekBalanceData}>
               <View style={styles.weekBalanceDataDayContainer}>
                 <Text style={styles.weekBalanceDataDayTitle}>Quarta-feira</Text>

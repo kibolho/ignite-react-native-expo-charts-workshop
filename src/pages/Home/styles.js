@@ -72,7 +72,14 @@ const styles = StyleSheet.create({
   businessAnalyticsChart: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#ddd',
+  },
+  businessAnalyticsChartWithData: {
+    backgroundColor: 'transparent',
+  },
+  businessAnalyticsChartWithoutData: {
+    borderRadius: 8,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
   },
   comparisonButtonContainer: {
     alignItems: 'center',
@@ -101,11 +108,28 @@ const styles = StyleSheet.create({
   weekBalance: {
     padding: 16,
     flexDirection: 'row',
+    alignItems: 'center',
   },
   weekBalanceChart: {
-    width: 50,
-    alignSelf: 'stretch',
-    backgroundColor: '#ddd',
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  weekBalanceChartWithData: {
+    backgroundColor: 'transparent',
+  },
+  weekBalanceChartWhitoutData: {
+    borderRadius: 8,
+    backgroundColor: '#f0f0f0',
+  },
+  weekBalanceChartContainer: {
+    position: 'absolute',
+  },
+  weekBalanceChartTitle: {
+    color: '#2B2B73',
+    fontWeight: 'bold',
+    fontSize: 14,
   },
   weekBalanceData: {
     flex: 1,
